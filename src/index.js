@@ -1,11 +1,11 @@
 const tg = window.Telegram.WebApp
 console.log('tg ready')
-// tg.initDataUnsafe.user.id // уникальный идентификатор пользователя
-// tg.initDataUnsafe.user.isBot // бот ли пользователь (true/false)
-// tg.initDataUnsafe.user.first_name // имя пользователя
-// tg.initDataUnsafe.user.last_name // "фамилия" пользователя
-// tg.initDataUnsafe.user.username // username пользователя
-// tg.initDataUnsafe.user.language_code // код языка пользователя
+const userId = tg.initDataUnsafe.user.id || 'хуй' // уникальный идентификатор пользователя
+const userBot = tg.initDataUnsafe.user.isBot || 'хуй' // бот ли пользователь (true/false)
+const userName = tg.initDataUnsafe.user.first_name || 'хуй' // имя пользователя
+const userLast = tg.initDataUnsafe.user.last_name || 'хуй' // "фамилия" пользователя
+const userUsername = tg.initDataUnsafe.user.username || 'хуй' // username пользователя
+const userLang = tg.initDataUnsafe.user.language_code || 'хуй' // код языка пользователя
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
 tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
@@ -15,10 +15,10 @@ tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются в�
 
 let usercard = document.getElementById("usercard"); //получаем кнопку активировать/деактивировать
 let profName = document.createElement('p'); //создаем параграф
-profName.innerText = `${tg?.initDataUnsafe?.user?.first_name}
-${tg?.initDataUnsafe?.user.last_name}
-${tg?.initDataUnsafe?.user.username} (${tg?.initDataUnsafe?.user?.language_code})`;
-//выдем имя, "фамилию", через тире username и код языка
+
+profName.innerText = `
+    ты - ${userId}, и лошадь твоя ${userName}
+`; //выдем имя, "фамилию", через тире username и код языка
 usercard.appendChild(profName); //добавляем
 let userid = document.createElement('p'); //создаем еще параграф
 userid.innerText = `${tg?.initDataUnsafe?.user.id}`; //показываем user_id
