@@ -15,7 +15,7 @@ bot.on('message', async (msg) => {
     await bot.sendMessage(chatId, `KEK`, {
         reply_markup: {
             inline_keyboard: [
-                [{text: 'goto', web_app: {url:'https://cas.chat/'}}],
+                [{text: 'goto', web_app: {url:'https://webapptgbottest.netlify.app/'}}],
             ]
         }
     });
