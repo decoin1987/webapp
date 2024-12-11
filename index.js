@@ -9,7 +9,7 @@ const bot = new TelegramBot(token, {polling: true})
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const userId = msg.chat.username;
-
+    console.log(msg)
 
     // send a message to the chat acknowledging receipt of their message
     await bot.sendMessage(chatId, `KEK`, {
