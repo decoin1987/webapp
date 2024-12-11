@@ -12,11 +12,17 @@ bot.on('message', async (msg) => {
     console.log(msg)
 
     // send a message to the chat acknowledging receipt of their message
-    await bot.sendMessage(chatId, `KEK`, {
-        reply_markup: {
-            inline_keyboard: [
-                [{text: 'goto', web_app: {url:'https://webapptgbottest.netlify.app/'}}],
-            ]
-        }
-    });
+    if(msg.text === '/start') {
+        await bot.sendMessage(chatId, `KEK`, {
+            reply_markup: {
+                inline_keyboard: [
+                    [{text: 'goto', web_app: {url:'https://webapptgbottest.netlify.app/'}}],
+                ]
+            }
+        });
+    }
+    if(msg?.web_app_data?.data) {
+        const data = JSON.parse(msg?.web_app_data?.data)
+        await bot.sendMessage("LOL" + data)
+    }
 });
