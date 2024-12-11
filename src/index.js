@@ -47,7 +47,8 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
     }
 });
 
-tg.onEvent('mainButtonClicked', function(){
+Telegram.WebApp.onEvent('mainButtonClicked', () =>{
     tg.sendData("some string that we need to send");
+    console.log('send')
     //при клике на основную кнопку отправляем данные в строковом виде
 });
