@@ -15,9 +15,9 @@ tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются в�
 
 let usercard = document.getElementById("usercard"); //получаем кнопку активировать/деактивировать
 let profName = document.createElement('p'); //создаем параграф
-profName.innerText = `${tg.initDataUnsafe.user.first_name}
+profName.innerText = `${tg?.initDataUnsafe?.user?.first_name}
 ${tg?.initDataUnsafe?.user.last_name}
-${tg?.initDataUnsafe?.user.username} (${tg.initDataUnsafe.user.language_code})`;
+${tg?.initDataUnsafe?.user.username} (${tg?.initDataUnsafe?.user?.language_code})`;
 //выдем имя, "фамилию", через тире username и код языка
 usercard.appendChild(profName); //добавляем
 let userid = document.createElement('p'); //создаем еще параграф
