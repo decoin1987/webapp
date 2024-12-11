@@ -18,11 +18,15 @@ bot.on('message', async (msg) => {
                 inline_keyboard: [
                     [{text: 'goto', web_app: {url:'https://webapptgbottest.netlify.app/'}}],
                 ],
-                keyboard: [
-                    [{text: 'lol', web_app: {url:'https://webapptgbottest.netlify.app/'}}]
-                ]
             }
         });
+        await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
+            reply_markup: {
+                keyboard: [
+                    [{text: 'Сделать заказ', web_app:  {url:'https://webapptgbottest.netlify.app/'}}],
+                ]
+            }
+        })
     }
     if(msg?.web_app_data?.data) {
         const data = JSON.parse(msg?.web_app_data?.data)
