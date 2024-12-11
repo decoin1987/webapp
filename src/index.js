@@ -13,24 +13,24 @@ tg.MainButton.textColor = "#F55353"; //изменяем цвет текста к
 tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
 tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
-// let usercard = document.getElementById("usercard"); //получаем кнопку активировать/деактивировать
-// let profName = document.createElement('p'); //создаем параграф
-// profName.innerText = `${tg.initDataUnsafe.user.first_name}
-// ${tg.initDataUnsafe.user.last_name}
-// ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-// //выдем имя, "фамилию", через тире username и код языка
-// usercard.appendChild(profName); //добавляем
-// let userid = document.createElement('p'); //создаем еще параграф
-// userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-// usercard.appendChild(userid); //добавляем
+let usercard = document.getElementById("usercard"); //получаем кнопку активировать/деактивировать
+let profName = document.createElement('p'); //создаем параграф
+profName.innerText = `${tg.initDataUnsafe.user.first_name}
+${tg.initDataUnsafe.user.last_name}
+${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
+//выдем имя, "фамилию", через тире username и код языка
+usercard.appendChild(profName); //добавляем
+let userid = document.createElement('p'); //создаем еще параграф
+userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+usercard.appendChild(userid); //добавляем
 let btn = document.getElementById("btn"); //получаем кнопку активировать/деактивировать
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
     if (tg.MainButton.isVisible){ //если кнопка показана
-        console.log('1231233')
+        console.log('Скрыли кнопку')
         tg.MainButton.hide() //скрываем кнопку
     }
     else{ //иначе
-        console.log('1231233')
+        console.log('показали кнопку')
         tg.MainButton.show() //показываем
     }
 });
