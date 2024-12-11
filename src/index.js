@@ -47,11 +47,11 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
     }
 });
 
-// tg.onEvent('mainButtonClicked', () =>{
-//     tg.sendData("some string that we need to send");
-//     userid.innerText = `lol`;
-//     //при клике на основную кнопку отправляем данные в строковом виде
-// });
 tg.MainButton.onclick(() => {
     tg.MainButton.setText('text')
 })
+tg.onEvent('mainButtonClicked', () =>{
+    tg.sendData("some string that we need to send");
+    userid.innerText = `lol`;
+    //при клике на основную кнопку отправляем данные в строковом виде
+});

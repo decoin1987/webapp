@@ -17,6 +17,9 @@ bot.on('message', async (msg) => {
             reply_markup: {
                 inline_keyboard: [
                     [{text: 'goto', web_app: {url:'https://webapptgbottest.netlify.app/'}}],
+                ],
+                keyboard: [
+                    [{text: 'lol', web_app: {url:'https://webapptgbottest.netlify.app/'}}]
                 ]
             }
         });
