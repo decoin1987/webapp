@@ -49,6 +49,6 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
 
 Telegram.WebApp.onEvent('mainButtonClicked', () =>{
     tg.sendData("some string that we need to send");
-    console.log('send')
+    userid.innerText = `lol`;
     //при клике на основную кнопку отправляем данные в строковом виде
 });
