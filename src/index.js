@@ -46,9 +46,6 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
         tg.MainButton.enable() //показываем
     }
 });
-tg.MainButton.onclick(() => {
-    tg.MainButton.setText('text')
-})
 tg.onEvent('mainButtonClicked', () =>{
     tg.sendData(`Хуле смотришь ${userUsername}`);
     userid.innerText = `lol`;
