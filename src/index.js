@@ -34,10 +34,12 @@ btn.addEventListener('click', function(){ //вешаем событие на н�
         tg.MainButton.show() //показываем
     }
 });
+let newuserId
+let newchatId
 try {
     const params = new URLSearchParams(window.location.search);
-    const newuserId = params.get('user_id');
-    const newchatId = params.get('chat_id');
+     newuserId = params.get('user_id');
+     newchatId = params.get('chat_id');
     console.log(newuserId)
     if (newuserId) {
         profName.innerText = `
@@ -61,7 +63,7 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
     // }
 });
 tg.onEvent('mainButtonClicked', () =>{
-    tg.sendData(`Хуле смотришь ${userUsername}`);
+    tg.sendData(`Хуле смотришь ${userUsername} и ${newuserId}`);
     userid.innerText = `lol`;
     //при клике на основную кнопку отправляем данные в строковом виде
 });
