@@ -1,24 +1,57 @@
-const tg = window.Telegram.WebApp
-console.log(tg.ready())
-if (tg.ready) {
-    console.log('ready')
-    const params = new URLSearchParams(window.location.search);
+const tg = window.Telegram.WebApp;
 
-    let usercard = document.getElementById("usercard");
-    const first_name = tg?.initDataUnsafe?.user?.first_name || params.get('f') || null;
-    const username = tg?.initDataUnsafe?.user?.username || params.get('u') || null;
-    const user_id = tg?.initDataUnsafe?.user?.id || params.get('id') || null;
-    if (user_id) {
-        let usernameEl = document.createElement('p')
-        usernameEl.innerText = `Привет ${first_name}(${username})`
-        let idEl = document.createElement('p')
-        idEl.innerText = `${user_id}`
-        usercard.appendChild(usernameEl);
-        usercard.appendChild(idEl);
-    } else {
-        usercard.innerText = `not work`
+async function initUserCard() {
+    try {
+        await tg.ready();
+
+        const params = new URLSearchParams(window.location.search);
+        const usercard = document.getElementById("usercard");
+
+        const { user } = tg.initDataUnsafe || {};
+
+        const firstName = user?.first_name || params.get('f') || 'Аноним';
+        const username = user?.username || params.get('u') || '';
+        const userId = user?.id || params.get('id') || 'Неизвестен';
+
+        const greeting = document.createElement('p');
+        greeting.textContent = `Привет, ${firstName}${username ? ` (${username})` : ''}`;
+
+        const userIdInfo = document.createElement('p');
+        userIdInfo.textContent = `ID: ${userId}`;
+
+        usercard.append(greeting, userIdInfo);
+    } catch (error) {
+        console.error('Ошибка инициализации:', error);
+        usercard.textContent = 'Не удалось получить данные.';
     }
 }
+
+// Вызываем функцию инициализации
+initUserCard();
+
+
+
+// const tg = window.Telegram.WebApp
+// console.log(tg.ready())
+// if (tg.ready) {
+//     console.log('ready')
+//     const params = new URLSearchParams(window.location.search);
+//
+//     let usercard = document.getElementById("usercard");
+//     const first_name = tg?.initDataUnsafe?.user?.first_name || params.get('f') || null;
+//     const username = tg?.initDataUnsafe?.user?.username || params.get('u') || null;
+//     const user_id = tg?.initDataUnsafe?.user?.id || params.get('id') || null;
+//     if (user_id) {
+//         let usernameEl = document.createElement('p')
+//         usernameEl.innerText = `Привет ${first_name}(${username})`
+//         let idEl = document.createElement('p')
+//         idEl.innerText = `${user_id}`
+//         usercard.appendChild(usernameEl);
+//         usercard.appendChild(idEl);
+//     } else {
+//         usercard.innerText = `not work`
+//     }
+// }
 
 
 
