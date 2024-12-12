@@ -7,13 +7,28 @@ if (tg.ready) {
     let usercard = document.getElementById("usercard");
     const first_name = tg?.initDataUnsafe?.user?.first_name || params.get('f') || null;
     const username = tg?.initDataUnsafe?.user?.username || params.get('u') || null;
-    if (first_name && username) {
+    const user_id = tg?.initDataUnsafe?.user?.id || params.get('id') || null;
+    if (first_name && username && user_id) {
         let usernameEl = document.createElement('p')
-        usernameEl.innerText = `${username}`
-        let firstNameEl = document.createElement('p')
-        firstNameEl.innerText = `${first_name}`
+        usernameEl.innerText = `Привет ${first_name}(${username})`
+        let idEl = document.createElement('p')
+        idEl.innerText = `${user_id}`
         usercard.appendChild(usernameEl);
-        usercard.appendChild(firstNameEl);
+        usercard.appendChild(idEl);
+        try {
+            let response = await fetch(`https://api.cas.chat/check?user_id=${user_id}`);
+            if (response.ok) { // если HTTP-статус в диапазоне 200-299
+                               // получаем тело ответа (см. про этот метод ниже)
+                let json = await response.json();
+                let statusEl = document.createElement('pre')
+                statusEl.innerText = `${json}`
+            } else {
+                let statusEl = document.createElement('pre')
+                statusEl.innerText = `"Ошибка HTTP: " + response.status`
+            }
+        } catch (e) {
+
+        }
     } else {
         usercard.innerText = `not work`
     }
