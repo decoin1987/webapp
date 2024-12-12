@@ -29,7 +29,8 @@ bot.on('message', async (msg) => {
         })
     }
     if(msg?.web_app_data?.data) {
-        const data = JSON.parse(msg?.web_app_data?.data)
-        await bot.sendMessage("LOL" + data)
+        // const data = msg?.web_app_data?.data
+        console.dir(msg.web_app_data)
+        await bot.sendMessage(chatId, msg.web_app_data.data)
     }
 });
