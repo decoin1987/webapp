@@ -37,14 +37,15 @@ btn.addEventListener('click', function(){ //вешаем событие на н�
 
 let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
 btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-    if (tg.MainButton.isActive){ //если кнопка показана
-        tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-        tg.MainButton.disable() //скрываем кнопку
-    }
-    else{ //иначе
-        tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-        tg.MainButton.enable() //показываем
-    }
+    tg.sendData(`Хуле смотришь ${userUsername}`);
+    // if (tg.MainButton.isActive){ //если кнопка показана
+    //     tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
+    //     tg.MainButton.disable() //скрываем кнопку
+    // }
+    // else{ //иначе
+    //     tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
+    //     tg.MainButton.enable() //показываем
+    // }
 });
 tg.onEvent('mainButtonClicked', () =>{
     tg.sendData(`Хуле смотришь ${userUsername}`);
