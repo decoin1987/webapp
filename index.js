@@ -13,23 +13,28 @@ bot.on('message', async (msg) => {
     console.log(msg)
 
     // send a message to the chat acknowledging receipt of their message
-    if(msg.text === '/start') {
+    if (msg.text === '/start') {
         await bot.sendMessage(chatId, `KEK`, {
             reply_markup: {
                 inline_keyboard: [
-                    [{text: 'goto', web_app: {url:'https://webapptgbottest.netlify.app/'}}],
+                    [{text: 'goto', web_app: {url: 'https://webapptgbottest.netlify.app/'}}],
                 ],
             }
         });
         await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
             reply_markup: {
                 keyboard: [
-                    [{text: 'LOL', web_app:  {url:`https://webapptgbottest.netlify.app?firstname=${first_name}&username=${username}`}}],
+                    [
+                        {
+                            text: 'LOL',
+                            web_app: {url: `https://webapptgbottest.netlify.app?firstname=${first_name}&username=${username}`}
+                        }
+                    ],
                 ]
             }
         })
     }
-    if(msg?.web_app_data?.data) {
+    if (msg?.web_app_data?.data) {
         // const data = msg?.web_app_data?.data
         console.dir(msg.web_app_data)
         await bot.sendMessage(chatId, msg.web_app_data.data)
