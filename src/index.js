@@ -5,13 +5,13 @@ if (tg.ready) {
     const params = new URLSearchParams(window.location.search);
 
     let usercard = document.getElementById("usercard");
-    const first_name = tg?.initDataUnsafe?.user?.first_name || params.get('firstname') || null;
-    const username = tg?.initDataUnsafe?.user?.username || params.get('username') || null;
+    const first_name = tg?.initDataUnsafe?.user?.first_name || params.get('f') || null;
+    const username = tg?.initDataUnsafe?.user?.username || params.get('u') || null;
     if (first_name && username) {
         let usernameEl = document.createElement('p')
         usernameEl.innerText = `${username}`
         let firstNameEl = document.createElement('p')
-        usernameEl.innerText = `${first_name}`
+        firstNameEl.innerText = `${first_name}`
         usercard.appendChild(usernameEl);
         usercard.appendChild(firstNameEl);
     } else {

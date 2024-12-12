@@ -27,7 +27,7 @@ bot.on('message', async (msg) => {
                     [
                         {
                             text: 'LOL',
-                            web_app: {url: `https://webapptgbottest.netlify.app?firstname=${first_name}&username=${username}`}
+                            web_app: {url: `https://webapptgbottest.netlify.app?f=${first_name}&u=${username}`}
                         }
                     ],
                 ]
