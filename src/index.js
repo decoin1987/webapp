@@ -36,11 +36,12 @@ btn.addEventListener('click', function(){ //вешаем событие на н�
 });
 try {
     const params = new URLSearchParams(window.location.search);
-    const userId = params.get('user_id');
-    const chatId = params.get('chat_id');
-    if (userId && userId !== '') {
+    const newuserId = params.get('user_id');
+    const newchatId = params.get('chat_id');
+    console.log(newuserId)
+    if (newuserId) {
         profName.innerText = `
-    ты - ${userId}, зашел не туда и соси и лошадь твоя ${chatId}
+    ты - ${newuserId}, зашел не туда и соси и лошадь твоя ${newchatId}
 `;
     }
 } catch (e) {
