@@ -1,5 +1,5 @@
 const tg = window.Telegram.WebApp
-
+console.log(tg.ready())
 if (tg.ready()) {
     console.log('ready')
     const params = new URLSearchParams(window.location.search);
@@ -17,7 +17,6 @@ if (tg.ready()) {
     } else {
         usercard.innerText = `not work`
     }
-
 }
 
 
