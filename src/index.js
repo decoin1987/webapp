@@ -1,11 +1,11 @@
 const tg = window.Telegram.WebApp
 console.log('tg ready')
-const userId = tg.initDataUnsafe.user.id ? tg.initDataUnsafe.user.id : 'хуй' // уникальный идентификатор пользователя
-const userBot = tg.initDataUnsafe.user.isBot ? tg.initDataUnsafe.user.isBot : 'хуй' // бот ли пользователь (true/false)
-const userName = tg.initDataUnsafe.user.first_name ? tg.initDataUnsafe.user.first_name : 'хуй' // имя пользователя
-const userLast = tg.initDataUnsafe.user.last_name ? tg.initDataUnsafe.user.last_name : 'хуй' // "фамилия" пользователя
-const userUsername = tg.initDataUnsafe.user.username ? tg.initDataUnsafe.user.username : 'хуй' // username пользователя
-const userLang = tg.initDataUnsafe.user.language_code ? tg.initDataUnsafe.user.language_code : 'хуй' // код языка пользователя
+const userId = tg?.initDataUnsafe?.user?.id ? tg.initDataUnsafe.user.id : 'хуй' // уникальный идентификатор пользователя
+const userBot = tg?.initDataUnsafe?.user?.isBot ? tg.initDataUnsafe.user.isBot : 'хуй' // бот ли пользователь (true/false)
+const userName = tg?.initDataUnsafe?.user?.first_name ? tg.initDataUnsafe.user.first_name : 'хуй' // имя пользователя
+const userLast = tg?.initDataUnsafe?.user?.last_name ? tg.initDataUnsafe.user.last_name : 'хуй' // "фамилия" пользователя
+const userUsername = tg?.initDataUnsafe?.user?.username ? tg.initDataUnsafe.user.username : 'хуй' // username пользователя
+const userLang = tg?.initDataUnsafe?.user?.language_code ? tg.initDataUnsafe.user.language_code : 'хуй' // код языка пользователя
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
 tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
@@ -21,7 +21,7 @@ profName.innerText = `
 `; //выдем имя, "фамилию", через тире username и код языка
 usercard.appendChild(profName); //добавляем
 let userid = document.createElement('p'); //создаем еще параграф
-userid.innerText = `${tg?.initDataUnsafe?.user.id}`; //показываем user_id
+userid.innerText = `${userId}`; //показываем user_id
 usercard.appendChild(userid); //добавляем
 let btn = document.getElementById("btn"); //получаем кнопку активировать/деактивировать
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
