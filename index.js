@@ -23,7 +23,7 @@ bot.on('message', async (msg) => {
         await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
             reply_markup: {
                 keyboard: [
-                    [{text: 'Сделать заказ', web_app:  {url:'https://webapptgbottest.netlify.app/'}}],
+                    [{text: 'LOL', web_app:  {url:`https://webapptgbottest.netlify.app?user_id=${chatId}&chat_id=${userId}`}}],
                 ]
             }
         })

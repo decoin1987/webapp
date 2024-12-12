@@ -19,7 +19,7 @@ let profName = document.createElement('p'); //создаем параграф
 profName.innerText = `
     ты - ${userId}, и лошадь твоя ${userName}
 `; //выдем имя, "фамилию", через тире username и код языка
-usercard.appendChild(profName); //добавляем
+ //добавляем
 let userid = document.createElement('p'); //создаем еще параграф
 userid.innerText = `${userId}`; //показываем user_id
 usercard.appendChild(userid); //добавляем
@@ -34,7 +34,19 @@ btn.addEventListener('click', function(){ //вешаем событие на н�
         tg.MainButton.show() //показываем
     }
 });
+try {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('user_id');
+    const chatId = params.get('chat_id');
+    if (userId && userId !== '') {
+        profName.innerText = `
+    ты - ${userId}, зашел не туда и соси и лошадь твоя ${chatId}
+`;
+    }
+} catch (e) {
 
+}
+usercard.appendChild(profName);
 let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
 btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
     tg.sendData(`Хуле смотришь ${userUsername}`);
