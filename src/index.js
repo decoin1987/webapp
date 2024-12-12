@@ -8,34 +8,13 @@ if (tg.ready) {
     const first_name = tg?.initDataUnsafe?.user?.first_name || params.get('f') || null;
     const username = tg?.initDataUnsafe?.user?.username || params.get('u') || null;
     const user_id = tg?.initDataUnsafe?.user?.id || params.get('id') || null;
-    if (true) {
+    if (user_id) {
         let usernameEl = document.createElement('p')
         usernameEl.innerText = `Привет ${first_name}(${username})`
         let idEl = document.createElement('p')
         idEl.innerText = `${user_id}`
         usercard.appendChild(usernameEl);
         usercard.appendChild(idEl);
-        try {
-            const getUserSatus = async (user_id ='821871410') => {
-                const resp = await fetch(`https://api.cas.chat/check?user_id=${user_id}`);
-                console.log(await fetch(`https://api.cas.chat/check?user_id=${user_id}`))
-                return await resp.json()
-            }
-            console.log(getUserSatus('821871410'))
-            const status = getUserSatus(user_id);
-            // let response = async () => await fetch(`https://api.cas.chat/check?user_id=${user_id}`);
-            if (status) { // если HTTP-статус в диапазоне 200-299
-                               // получаем тело ответа (см. про этот метод ниже)
-                let json = status.json();
-                let statusEl = document.createElement('pre')
-                statusEl.innerText = `${json}`
-            } else {
-                let statusEl = document.createElement('pre')
-                statusEl.innerText = `"Ошибка HTTP: " + response.status`
-            }
-        } catch (e) {
-
-        }
     } else {
         usercard.innerText = `not work`
     }
